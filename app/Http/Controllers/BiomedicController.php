@@ -29,7 +29,16 @@ class BiomedicController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $biomedico=new Biomedic();
+        $biomedico->nombre=$request->nombre;
+        $biomedico->apellidoP=$request->apellidoP;
+        $biomedico->apellidoM=$request->apellidoM;
+        $biomedico->puesto=$request->puesto;
+        $biomedico->fecha_nac=$request->fecha_nac;
+        $biomedico->domicilio=$request->domicilio;
+        $biomedico->telefono=$request->telefono;
+        $biomedico->save();
+        return redirect()->route('biomedics.index');
     }
 
     /**
@@ -37,7 +46,7 @@ class BiomedicController extends Controller
      */
     public function show(Biomedic $biomedic)
     {
-        //
+        return view('biomedics/showBiomedic', compact('biomedic'));
     }
 
     /**
