@@ -11,8 +11,15 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('equipo_medico_controllers', function (Blueprint $table) {
+        Schema::create('equipment', function (Blueprint $table) {
             $table->id();
+            $table->string('nombre');
+            $table->string('marca');
+            $table->string('modelo');
+            $table->string('n_serie');
+            $table->string('status_eq_med');
+            $table->string('id_area');
+            $table->string('id_accesorio');
             $table->timestamps();
         });
     }
@@ -22,6 +29,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('equipo_medico_controllers');
+        Schema::dropIfExists('equipment');
     }
 };
