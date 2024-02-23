@@ -7,16 +7,16 @@
 </head>
 <body>
     <ul>
-        <il>ID</il>
-        <il>Nombre</il>
-        <il>Apellido Paterno</il>
-        <il>Apellido Materno</il>
-        <il></il>
-        <il></il>
-        <il></il>
-        <il></il>
-        <il></il>
-        <il></il>
+        <il>ID {{$biomedic->id}}</il>
+        <il>Nombre {{$biomedic->nombre}}</il>
+        <il>Apellido Paterno {{$biomedic->apellidoP}}</il>
+        <il>Apellido Materno {{$biomedic->iapellidoM}}</il>
+        <il>Puesto {{$biomedic->puesto}}</il>
+        <il>Fecha de nacimiento {{$biomedic->ifecha_nac}}</il>
+        <il>Domicilio {{$biomedic->idomicilio}}</il>
+        <il>Telefono {{$biomedic->telefono}}</il>
+        <il>Fecha de creación  {{$biomedic->created_at}}</il>
+        <il>Última modificación {{$biomedic->updated_at}}</il>
     </ul>
 </body>
 </html>
