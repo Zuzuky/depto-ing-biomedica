@@ -7,9 +7,13 @@
     <title>Información de accesorios</title>
 </hedead>
 <body>
+    <header>
+        <a href="{{ route('accessory.index') }}">Regresar</a>
+    </header>
+    <hr>
     <h1>Accesorio ID {{ $accessory->id }}</h1>
     <ul>
-        <li>Id: {{ $accessory->id_accesorio }}</li>
+        <li>Id: {{ $accessory->id }}</li>
         <li>Nombre: {{ $accessory->nombre }}</li>
         <li>Marca: {{ $accessory->marca }}</li>
         <li>Modelo: {{ $accessory->modelo }}</li>

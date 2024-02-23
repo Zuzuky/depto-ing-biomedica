@@ -29,6 +29,13 @@ class AccessoryController extends Controller
      */
     public function store(Request $request)
     {
+        // Validar datos
+        $request->validate([
+            'nombre' => ['required', 'string', 'max:255', 'min:10'],
+            'marca' => ['required', 'string', 'max:255'],
+            'modelo'=> ['required', 'string', 'max:255'],
+        ]);
+
         $accesorio = new Accessory();
         $accesorio->nombre = $request->nombre;
         $accesorio->marca = $request->marca;
@@ -59,6 +66,11 @@ class AccessoryController extends Controller
      */
     public function update(Request $request, Accessory $accessory)
     {
+        $request->validate([
+            'nombre' => ['required', 'string', 'max:255', 'min:10'],
+            'marca' => ['required', 'string', 'max:255'],
+            'modelo'=> ['required', 'string', 'max:255'],
+        ]);
         $accessory->nombre = $request->nombre;
         $accessory->marca = $request->marca;
         $accessory->modelo = $request->modelo;
@@ -72,6 +84,7 @@ class AccessoryController extends Controller
      */
     public function destroy(Accessory $accessory)
     {
-        //
+        $accessory->delete();
+        return redirect()->route('accessory.index');
     }
 }

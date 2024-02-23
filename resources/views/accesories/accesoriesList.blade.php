@@ -27,11 +27,17 @@
                     <td>{{ $accessory->modelo }}</td>
                     <td>
                         <a href="{{ route('accessory.show', $accessory) }}">Ver info</a> |
-                        <a href="{{ route('accessory.edit', $accessory) }}">Editar accesorio</a>
+                        <a href="{{ route('accessory.edit', $accessory) }}">Editar accesorio</a> 
+                        <form action="{{ route('accessory.destroy', $accessory) }}" method="post">
+                            @csrf
+                            @method('DELETE')
+                            <input type="submit" value="Eliminar">
+                        </form>
                     </td>
                 </tr>
             @endforeach
         </tbody>
     </table>
+    <a href="{{ route('accessory.create') }}">Agregar nuevo accesorio</a>
 </body>
 </html>
