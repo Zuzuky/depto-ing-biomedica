@@ -6,17 +6,20 @@
     <title>Show biomedics</title>
 </head>
 <body>
+    <header><a href="{{route('biomedics.index')}}">Regresar</a></header>
+    <hr>
+    <h1>Biomedico ID {{$biomedic->id}}</h1>
     <ul>
-        <il>ID {{$biomedic->id}}</il>
-        <il>Nombre {{$biomedic->nombre}}</il>
-        <il>Apellido Paterno {{$biomedic->apellidoP}}</il>
-        <il>Apellido Materno {{$biomedic->iapellidoM}}</il>
-        <il>Puesto {{$biomedic->puesto}}</il>
-        <il>Fecha de nacimiento {{$biomedic->ifecha_nac}}</il>
-        <il>Domicilio {{$biomedic->idomicilio}}</il>
-        <il>Telefono {{$biomedic->telefono}}</il>
-        <il>Fecha de creación  {{$biomedic->created_at}}</il>
-        <il>Última modificación {{$biomedic->updated_at}}</il>
+        <li>ID {{$biomedic->id}}</li>
+        <li>Nombre {{$biomedic->nombre}}</li>
+        <li>Apellido Paterno {{$biomedic->apellidoP}}</li>
+        <li>Apellido Materno {{$biomedic->apellidoM}}</li>
+        <li>Puesto {{$biomedic->puesto}}</li>
+        <li>Fecha de nacimiento {{$biomedic->fecha_nac}}</li>
+        <li>Domicilio {{$biomedic->domicilio}}</li>
+        <li>Telefono {{$biomedic->telefono}}</li>
+        <li>Fecha de creación  {{$biomedic->created_at}}</li>
+        <li>Última modificación {{$biomedic->updated_at}}</li>
     </ul>
 </body>
 </html>

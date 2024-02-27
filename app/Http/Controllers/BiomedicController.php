@@ -29,6 +29,15 @@ class BiomedicController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'nombre'=>['required','string'],
+            'apellidoP'=>['required', 'string'],
+            'apellidoM'=>['required', 'string'],
+            'puesto'=>['required', 'string'],
+            'fecha_nac'=>['required', 'DATE'],
+            'domicilio'=>['required', 'string'],
+            'telefono'=>['required', 'string'],
+        ]);
         $biomedico=new Biomedic();
         $biomedico->nombre=$request->nombre;
         $biomedico->apellidoP=$request->apellidoP;
@@ -54,7 +63,7 @@ class BiomedicController extends Controller
      */
     public function edit(Biomedic $biomedic)
     {
-        //
+        return view('biomedics/editBiomedic', compact('biomedic'));
     }
 
     /**
@@ -62,7 +71,24 @@ class BiomedicController extends Controller
      */
     public function update(Request $request, Biomedic $biomedic)
     {
-        //
+        $request->validate([
+            'nombre'=>['required','string'],
+            'apellidoP'=>['required', 'string'],
+            'apellidoM'=>['required', 'string'],
+            'puesto'=>['required', 'string'],
+            'fecha_nac'=>['required', 'DATE'],
+            'domicilio'=>['required', 'string'],
+            'telefono'=>['required', 'string'],
+        ]);
+        $biomedic->nombre=$request->nombre;
+        $biomedic->apellidoP=$request->apellidoP;
+        $biomedic->apellidoM=$request->apellidoM;
+        $biomedic->puesto=$request->puesto;
+        $biomedic->fecha_nac=$request->fecha_nac;
+        $biomedic->domicilio=$request->domicilio;
+        $biomedic->telefono=$request->telefono;
+        $biomedic->save();
+        return redirect()->route('biomedics.show', $biomedic);
     }
 
     /**
@@ -70,6 +96,7 @@ class BiomedicController extends Controller
      */
     public function destroy(Biomedic $biomedic)
     {
-        //
+        $biomedic->delete();
+        return redirect()->route('biomedics.index');
     }
 }

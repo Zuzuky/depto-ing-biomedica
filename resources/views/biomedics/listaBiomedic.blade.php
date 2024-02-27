@@ -6,7 +6,8 @@
     <title>Lista Biomedicos</title>
 </head>
 <body>
-    <table>
+    <h1>Lista de biomédicos</h1>
+    <table border=1>
         <thead>
             <th>ID</th>
             <th>Nombre</th>
@@ -16,9 +17,11 @@
             <th>Fecha de nacimiento</th>
             <th>Domicilio</th>
             <th>teléfono</th>
+            <th>Acciones</th>
         </thead>
         <tbody>
             @foreach($biomedics as $biomedic)
+            <tr>
                 <td>{{$biomedic->id}}</td>
                 <td>{{$biomedic->nombre}}</td>
                 <td>{{$biomedic->apellidoP}}</td>
@@ -27,11 +30,17 @@
                 <td>{{$biomedic->fecha_nac}}</td>
                 <td>{{$biomedic->domicilio}}</td>
                 <td>{{$biomedic->telefono}}</td>
-                <td>
-                    <a href=""></a>
+                <td><a href="{{route('biomedics.show', $biomedic)}}">Ver Info</a><a href="{{route('biomedics.edit', $biomedic)}}">Editar Biomedico</a>
+                    <form action="{{route('biomedics.destroy',$biomedic)}}" method="POST">
+                        @csrf
+                        @method('DELETE')
+                        <input type="submit" value="eliminar">
+                    </form>
                 </td>
+            </tr>
             @endforeach
         </tbody>
     </table>
+    <a href="{{route('biomedics.create')}}">Agregar biomédico</a>
 </body>
 </html>
