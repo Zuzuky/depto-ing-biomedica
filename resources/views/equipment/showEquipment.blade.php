@@ -9,7 +9,7 @@
     <h1>Id Equipo Medico: {{ $equipment->id}}</h1>
     <ul>
         <li>Id: {{ $equipment->id}}</li>
-        <li>Nombre: {{ $equipment->nombre}}</li>
+        <li>Nombre: {{ $equipment->id_jefa}}</li>
         <li>Marca: {{ $equipment->marca}}</li>
         <li>Modelo: {{ $equipment->modelo}}</li>
         <li>No. serie: {{ $equipment->n_serie}}</li>

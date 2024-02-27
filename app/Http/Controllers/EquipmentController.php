@@ -45,7 +45,7 @@ class EquipmentController extends Controller
         ]);
         
         $equipment= new Equipment();
-        //$equipment->id_eq_med =$request->id_eq_med;
+       
         $equipment->nombre = $request->nombre;
         $equipment->marca = $request->marca;
         $equipment->modelo = $request->modelo;
@@ -80,7 +80,17 @@ class EquipmentController extends Controller
      */
     public function update(Request $request, Equipment $equipment)
     {
-        //$equipment->id_eq_med =$request->id_eq_med;
+        $request->validate([
+          
+            'nombre' =>   ['required', 'string', 'max:255'],
+            'marca' =>   ['required', 'string', 'max:255'],
+            'modelo' =>   ['required', 'string', 'max:255'],
+            'n_serie' =>   ['required', 'string', 'max:255'],
+            'status_eq_med' => ['required'],
+            'id_area' =>   ['required', 'string', 'max:255'],
+            'id_accesorio' =>   ['required', 'string', 'max:255'],
+        ]);
+     
         $equipment->nombre = $request->nombre;
         $equipment->marca = $request->marca;
         $equipment->modelo = $request->modelo;

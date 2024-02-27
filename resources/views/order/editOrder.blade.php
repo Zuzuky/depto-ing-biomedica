@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Expediente Equipo Medico</title>
+    <title>Editar Orden</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body class="bod">
@@ -11,30 +11,31 @@
 
         
         <a href="info">Hacia info</a>
-
-            <form action="/order" method="POST">
+        <hr>
+        @include('parciales.formError')
+   
+        <form action=" {{route('order.update', $order->id) }}" method="POST">
             @csrf
-            
-            <label for="no_reporte">No. reporte</label>
-            <input type="text" id="no_reporte" name="no_reporte" value="{{ $order->no_reporte}}">
-            <br><br>
+            @method('PATCH')  
             <label for="id_jefa">Id Jefa</label>
-            <input type="text" id="id_jefa" name="id_jefa">
+            <input type="text"  name="id_jefa" value="{{ $order->id_jefa }}">
             <br><br>
             <label for="id_eq_med">Id Equipo Medico</label>
-            <input type="text" id="id_eq_med" name="id_eq_med">
+            <input type="text" id="id_eq_med" name="id_eq_med" value="{{ $order->id_eq_med }}">
             <br><br>
             <label for="id_ing_biomed">Id Ing. Biomedico</label>
-            <input type="text" id="id_ing_biomed" name="id_ing_biomed">
+            <input type="text" id="id_ing_biomed" name="id_ing_biomed" value="{{ $order->id_ing_biomed }}">
             <br><br>
             <label for="id_area">Id Area</label>
-            <input type="text" id="id_area" name="id_area">
+            <input type="text" id="id_area" name="id_area" value="{{ $order->id_area }}">
             <br><br>
             <label for="falla">Descripcion falla</label>
-            <textarea" id=" " name="falla" cols="30" rows="10"> {{ $equipment->falla}} </textarea>
+            <br>
+            <textarea name="falla" cols="30" rows="10"> {{ $order->falla }} </textarea>
             <br><br>
-            <button type="submit">Enviar</button>
+            <input type="submit" value="Enviar">
         </form>
     </div>
 </body>
 </html>
+

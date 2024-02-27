@@ -11,15 +11,13 @@
 
         
         <a href="info">Hacia info</a>
+        <hr>
+        @include('parciales.formError')
 
         <form action=" {{route('equipment.update', $equipment->id) }}" method="POST">
             @csrf
             @method('PATCH')
-        <!--    
-            <label for="id_eq_med">Id Equipo Medico</label>
-            <input type="text" name="id_eq_med" value="{{ $equipment->id_eq_med }}">
-            <br><br>
-        -->
+
             <label for="nombre">Nombre</label>
             <input type="text" name="nombre" value="{{ $equipment->nombre }}">
             <br><br>
@@ -44,8 +42,6 @@
             <label for="id_accesorio">Id accesorio</label>
             <input type="text" name="id_accesorio" value="{{ $equipment->id_accesorio }}">
             <br><br>
-     
-            
             <input type="submit" value="Enviar">
         </form>
     </div>

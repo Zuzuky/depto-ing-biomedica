@@ -18,8 +18,8 @@ return new class extends Migration
             $table->string('modelo');
             $table->string('n_serie');
             $table->string('status_eq_med');
-            $table->string('id_area');
-            $table->string('id_accesorio');
+            $table->bigInteger('id_area');
+            $table->bigInteger('id_accesorio');
             $table->timestamps();
         });
     }

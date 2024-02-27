@@ -12,11 +12,11 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('orders', function (Blueprint $table) {
-            $table->bigIncrements('no_reporte');
-            $table->string('id_jefa');
-            $table->string('id_eq_med');
-            $table->string('id_ing_biomed');
-            $table->string('id_area');
+            $table->id();
+            $table->bigInteger('id_jefa');
+            $table->bigInteger('id_eq_med');
+            $table->bigInteger('id_ing_biomed');
+            $table->bigInteger('id_area');
             $table->text('falla');
             $table->timestamps();
         });
