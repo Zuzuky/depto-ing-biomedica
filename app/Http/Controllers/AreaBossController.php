@@ -29,7 +29,24 @@ class AreaBossController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        
+        $request->validate([
+            'nombre'=>['required','string'],
+            'apellidoP'=>['required', 'string'],
+            'apellidoM'=>['required', 'string'],
+            'fecha_nac'=>['required', 'DATE'],
+            'domicilio'=>['required', 'string'],
+            'telefono'=>['required', 'string'],
+        ]);
+        $bosses=new AreaBoss();
+        $bosses->nombre=$request->nombre;
+        $bosses->apellidoP=$request->apellidoP;
+        $bosses->apellidoM=$request->apellidoM;
+        $bosses->fecha_nac=$request->fecha_nac;
+        $bosses->domicilio=$request->domicilio;
+        $bosses->telefono=$request->telefono;
+        $bosses->save();
+        return redirect()->route('areaBosses.index');
     }
 
     /**
@@ -37,7 +54,7 @@ class AreaBossController extends Controller
      */  
     public function show(AreaBoss $areaBoss)
     {
-        //
+        return view('bosses/showBoss', compact('areaBoss'));
     }
 
     /**
@@ -45,7 +62,7 @@ class AreaBossController extends Controller
      */
     public function edit(AreaBoss $areaBoss)
     {
-        //
+        return view('bosses/editBoss', compact('areaBoss'));
     }
 
     /**
@@ -53,7 +70,22 @@ class AreaBossController extends Controller
      */
     public function update(Request $request, AreaBoss $areaBoss)
     {
-        //
+        $request->validate([
+            'nombre'=>['required','string'],
+            'apellidoP'=>['required', 'string'],
+            'apellidoM'=>['required', 'string'],
+            'fecha_nac'=>['required', 'DATE'],
+            'domicilio'=>['required', 'string'],
+            'telefono'=>['required', 'string'],
+        ]);
+        $areaBoss->nombre=$request->nombre;
+        $areaBoss->apellidoP=$request->apellidoP;
+        $areaBoss->apellidoM=$request->apellidoM;
+        $areaBoss->fecha_nac=$request->fecha_nac;
+        $areaBoss->domicilio=$request->domicilio;
+        $areaBoss->telefono=$request->telefono;
+        $areaBoss->save();
+        return redirect()->route('areaBosses.show', $areaBoss);
     }
 
     /**
@@ -61,6 +93,7 @@ class AreaBossController extends Controller
      */
     public function destroy(AreaBoss $areaBoss)
     {
-        //
+        $areaBoss->delete();
+        return redirect()->route('areaBosses.index');
     }
 }
