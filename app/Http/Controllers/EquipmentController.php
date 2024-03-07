@@ -12,6 +12,7 @@ class EquipmentController extends Controller
      */
     public function index()
     {
+        //$equipments = Equipment::where(();
         $equipments = Equipment::all();
        
         return view('equipment/indexEquipment', compact('equipments'));
@@ -90,15 +91,15 @@ class EquipmentController extends Controller
             'id_area' =>   ['required', 'string', 'max:255'],
             'id_accesorio' =>   ['required', 'string', 'max:255'],
         ]);
-     
-        $equipment->nombre = $request->nombre;
+        $equipment->update($request->all());
+       /* $equipment->nombre = $request->nombre;
         $equipment->marca = $request->marca;
         $equipment->modelo = $request->modelo;
         $equipment->n_serie = $request->n_serie;
         $equipment->status_eq_med = $request->status_eq_med;
         $equipment->id_area = $request->id_area;
         $equipment->id_accesorio =  $request->id_accesorio;
-        $equipment->save();
+        $equipment->save();*/
         
         return redirect()->route('equipment.show', $equipment);
     }

@@ -13,10 +13,11 @@ return new class extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('id_jefa');
-            $table->bigInteger('id_eq_med');
-            $table->bigInteger('id_ing_biomed');
-            $table->bigInteger('id_area');
+            $table->foreignId('jefa_id')->constrained();
+            $table->foreignId('eq_med_id')->constrained();
+            $table->foreignId('ing_biomed_id')->constrained();
+            $table->foreignId('area_id')->constrained();
+           
             $table->text('falla');
             $table->timestamps();
         });
